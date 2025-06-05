@@ -1,103 +1,116 @@
-import Image from "next/image";
+import Link from "next/link";
+import Star from "./components/Star";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const products = [
+    {
+      id: 1,
+      name: "Vaso de Cerâmica Artesanal",
+      price: 49.99,
+      image: "https://placehold.co/200",
+      rating: 4.8,
+      reviews: 9,
+      artist: "Maria da Silva",
+      categories: ["decoracao", "casa"],
+    },
+    {
+      id: 2,
+      name: "Tábua de Corte de Madeira",
+      price: 35.5,
+      image: "https://placehold.co/200",
+      rating: 4.6,
+      reviews: 6,
+      artist: "João Santos",
+      categories: ["cozinha", "utilidades"],
+    },
+    {
+      id: 3,
+      name: "Pendente de Madeira",
+      price: 65.0,
+      image: "https://placehold.co/200",
+      rating: 4.9,
+      reviews: 2,
+      artist: "Ana Oliveira",
+      categories: ["iluminacao", "decoracao"],
+    },
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  return (
+    <>
+      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+        <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
+          <div className="mb-8 md:mb-0">
+            <h1 className="text-4xl sm:text-5xl font-bold mb-4">Descubra Produtos Artesanais Únicos</h1>
+            <p className="text-xl mb-6">Apoiando artesãos locais e trazendo artesanato de qualidade até você</p>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      <section className="py-16">
+        <div className="container mx-auto px-4 py-8">
+          <div className="flex justify-between items-center mb-6">
+            <h1 className="text-2xl font-bold">Lista de Produtos</h1>
+            <div className="flex items-center gap-3">
+              <select className="border p-2 rounded">
+                <option>Todas Categorias</option>
+                <option>Decoração</option>
+                <option>Cozinha</option>
+                <option>Acessórios</option>
+                <option>Iluminação</option>
+                <option>Utilidades</option>
+              </select>
+              Ordenar por:
+              <select className="border p-2 rounded">
+                <option>Em alta</option>
+                <option>Preço: Crescente</option>
+                <option>Preço: Decrescente</option>
+                <option>Avaliações</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {products.map((product) => (
+              <Link href={`/products/${product.id}`} key={product.id} className="block">
+                <div className="bg-white rounded-lg overflow-hidden shadow-md transition-transform hover:scale-105">
+                  <img src={product.image} alt={product.name} className="w-full h-48 object-cover" />
+                  <div className="p-4">
+                    <h3 className="font-semibold text-lg mb-1">{product.name}</h3>
+                    <p className="text-gray-600 text-sm mb-1">by {product.artist}</p>
+                    <p className="text-gray-500 text-xs mb-2">{product.categories.join(", ")}</p>
+
+                    <div className="flex items-center mb-2">
+                      <div className="flex text-yellow-400">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} fill={i < Math.floor(product.rating) ? "currentColor" : "none"} />
+                        ))}
+                      </div>
+                      <span className="text-xs text-gray-500 ml-1">({product.reviews})</span>
+                    </div>
+
+                    <div className="flex justify-between items-center">
+                      <span className="font-bold">R$ {product.price.toFixed(2).replace(".", ",")}</span>
+                      <button className="bg-blue-600 text-white text-xs py-1 px-3 rounded hover:bg-blue-700">
+                        + Carrinho
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="flex justify-center mt-8">
+            <div className="flex items-center gap-2">
+              <button className="px-3 py-1 border rounded hover:bg-gray-100">Anterior</button>
+              <button className="px-3 py-1 bg-blue-600 text-white rounded">1</button>
+              <button className="px-3 py-1 border rounded hover:bg-gray-100">2</button>
+              <button className="px-3 py-1 border rounded hover:bg-gray-100">3</button>
+              <button className="px-3 py-1 border rounded hover:bg-gray-100">Próximo</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
