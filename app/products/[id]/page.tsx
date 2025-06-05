@@ -1,10 +1,9 @@
-import React from "react";
-
 export default function ProductDetailPage({ params }: { params: { id: string } }) {
   const product = {
     id: params.id,
     name: "Vaso de Cerâmica Artesanal",
-    description: "descricao",
+    description:
+      "Um belo vaso de cerâmica artesanal feito com técnicas tradicionais. Cada peça é única com pequenas variações de cor e textura. Perfeito como peça decorativa ou para flores frescas.",
     price: 49.99,
     imageUrl: "https://placehold.co/600x400",
     images: [
@@ -16,9 +15,9 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
     rating: 4.8,
     reviews: 24,
     artist: {
-      name: "aeiou",
+      name: "Maria Silva",
       avatar: "https://placehold.co/50x50",
-      bio: "abc123",
+      bio: "Ceramista com mais de 10 anos de experiência especializada em técnicas tradicionais de cerâmica.",
     },
     category: "Decoração para Casa",
     dimensions: "20 x 15 x 15 cm",
@@ -30,11 +29,30 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
   const comments = [
     {
       id: 1,
-      user: "Julia",
+      user: "Julia Ferreira",
       avatar: "https://placehold.co/40x40",
-      date: "28 de Maio, 2099",
+      date: "28 de Maio, 2025",
       rating: 5,
-      content: "otimo.",
+      content:
+        "Artesanato maravilhoso! O vaso chegou perfeitamente embalado e é ainda mais bonito pessoalmente. As cores são vibrantes e o tamanho é perfeito para a decoração da minha sala de estar.",
+    },
+    {
+      id: 2,
+      user: "Roberto Garcia",
+      avatar: "https://placehold.co/40x40",
+      date: "15 de Maio, 2025",
+      rating: 4,
+      content:
+        "Adorei o design e a qualidade deste vaso. O único motivo pelo qual não dei 5 estrelas é porque é um pouco menor do que eu esperava. Ainda assim, é uma peça de arte deslumbrante.",
+    },
+    {
+      id: 3,
+      user: "Carolina Santos",
+      avatar: "https://placehold.co/40x40",
+      date: "30 de Abril, 2025",
+      rating: 5,
+      content:
+        "Esta é a minha segunda compra desta artista e nunca fico desapontada. A atenção aos detalhes é notável e o envio foi rápido.",
     },
   ];
 
